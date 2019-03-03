@@ -10,11 +10,11 @@ public class ReadAllFile {
 
     private String line;
     private String[] lines;
-    private Map<String, Map<String, Integer>> transactions = new TreeMap<>();
-    Map<String, Integer> recipient = new HashMap<>();
 
-    public ReadAllFile(){}
-
+    public ReadAllFile() {
+    }
+      // Читаем транзакции из файлов и обрабатываем их сразу.
+    // пложая идея конструктор делать методом?
     public Map<String, Integer> ReadAllFile(Map<String, Integer> mapClients) throws FileNotFoundException, NullPointerException {
         try {
             for (File file : GetAllFile.getAllFile()) {
@@ -43,6 +43,6 @@ public class ReadAllFile {
         } catch (IOException e) {
             System.out.println(e);
         }
-        return  mapClients;
+        return mapClients;
     }
 }

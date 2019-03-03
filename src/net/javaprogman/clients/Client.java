@@ -1,5 +1,6 @@
 package net.javaprogman.clients;
 
+// задумка была глобальнейшая ....
 public class Client extends Person {
 
     private Integer  purse;

@@ -3,7 +3,7 @@ package net.javaprogman.clients;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
+// вот что получилось из Person и Client.
 public class MapClients {
 
     //инициализируем базу клиентов.

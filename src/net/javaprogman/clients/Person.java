@@ -1,5 +1,7 @@
 package net.javaprogman.clients;
 
+
+// задумка была глобальная ....
 public abstract class Person {
 
     private String name;
