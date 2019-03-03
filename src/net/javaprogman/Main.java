@@ -1,43 +1,48 @@
 package net.javaprogman;
 
-import net.javaprogman.clients.Client;
-
-import java.io.File;
-import java.util.ArrayList;
-
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import net.javaprogman.clients.MapClients;
 import net.javaprogman.readFile.*;
+import net.javaprogman.writeFile.WriteAllToFile;
 
 
 public class Main {
 
+    static Map<String, Integer> mapClientsOut = new HashMap<>();
+
     public static void main(String[] args) {
 
-        //инициализируем базу клиентов.
-        ArrayList<Client> listClients = new ArrayList<>();
-
-        listClients.add(new Client("Mishel", 100));
-        listClients.add(new Client("Roman", 100));
-        listClients.add(new Client("Lidia", 100));
-        listClients.add(new Client("Andrew", 100));
-
-        listClients.add(new Client("MAZ", 100));
-        listClients.add(new Client("BELAZ", 100));
-        listClients.add(new Client("UAZ", 100));
-        listClients.add(new Client("KAMAZ", 100));
-        listClients.add(new Client("FERRARI", 100));
-
-        listClients.add(new Client("Vasily", 100));
-        listClients.add(new Client("Olga", 100));
-        listClients.add(new Client("Masha", 100));
-        listClients.add(new Client("Grigory", 100));
-        listClients.add(new Client("Alena", 100));
-        listClients.add(new Client("Vladimir", 100));
-        listClients.add(new Client("Maxim", 100));
-        listClients.add(new Client("Konstantin", 100));
 
 
+        try {
+
+        MapClients.getMapClients().forEach((key, value) -> {
+                System.out.println(key+ "  " + value);
+        });
 
 
+            ReadAllFile ral = new ReadAllFile();
+            mapClientsOut = ral.ReadAllFile(MapClients.getMapClients());
+            System.out.println("=================================================================================");
+
+
+            mapClientsOut.forEach((key, value) -> {
+                System.out.println(key+ "  " + value);
+            });
+
+            WriteAllToFile wf = new WriteAllToFile();
+            wf.write(mapClientsOut);
+
+        } catch (NullPointerException e) {
+            System.out.println(e);
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+        } catch (IOException e) {
+            System.out.println(e);
+        }
 
 
     }

@@ -1,4 +1,15 @@
 package net.javaprogman.clearing;
 
-public class Clearing {
+
+import java.util.Map;
+
+public class Clearing implements Settlement {
+
+
+
+
+    @Override
+    public void transferTo(Map<String, Map<String, Integer>> transfer) {
+
+    }
 }

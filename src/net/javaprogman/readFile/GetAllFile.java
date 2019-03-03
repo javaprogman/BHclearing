@@ -1,20 +1,23 @@
 package net.javaprogman.readFile;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class readFile {
+public class GetAllFile {
 
-    private ArrayList<File> goodFile;
+    private static ArrayList<File> clearingFile = new ArrayList<>();
 
-    public ArrayList<File> readFile() throws IOException {
+    public static ArrayList<File> getAllFile() throws FileNotFoundException, NullPointerException {
 
         File[] files = new File(".").listFiles();
         for (File file: files) {
-            if (file.getName().contains("debts")
-            goodFile =
+            if (file.getName().contains("debts"))
+                clearingFile.add(file);
         }
+
+        return clearingFile;
     }
 }
